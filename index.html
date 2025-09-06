@@ -53,12 +53,16 @@
     <header class="sticky top-0 z-40 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-slate-100">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
-          <div class="flex items-center gap-8">
+          <div class="flex items-center gap-4 md:gap-8">
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-toggle" class="md:hidden inline-flex items-center justify-center rounded-lg border border-slate-200 p-2 hover:bg-slate-50">
+              <i data-lucide="menu" class="h-5 w-5 text-slate-700"></i>
+            </button>
             <a href="#" class="flex items-center gap-2">
               <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-slate-900 text-white">
                 <i data-lucide="sparkles" class="h-4 w-4"></i>
               </span>
-              <span class="text-xl font-semibold tracking-tight">QuickMart</span>
+              <span class="text-lg md:text-xl font-semibold tracking-tight">QuickMart</span>
             </a>
             <nav class="hidden md:flex items-center gap-6 text-sm">
               <a href="#" class="text-slate-600 hover:text-slate-900">Home</a>
@@ -69,70 +73,87 @@
               <a href="#" class="text-slate-600 hover:text-slate-900">Accessories</a>
             </nav>
           </div>
-          <div class="flex items-center gap-3 w-1/3 max-w-md ml-8">
-            <div class="relative flex-1">
+          <div class="flex items-center gap-2 md:gap-3">
+            <!-- Search - hidden on mobile, shown on larger screens -->
+            <div class="hidden sm:block relative w-32 md:w-48 lg:w-64">
               <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400"></i>
               <input type="text" placeholder="Search products…" class="w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-300">
             </div>
-            <button class="relative inline-flex items-center justify-center rounded-lg border border-slate-200 px-3 py-2 hover:bg-slate-50">
+            <!-- Mobile search button -->
+            <button class="sm:hidden relative inline-flex items-center justify-center rounded-lg border border-slate-200 p-2 hover:bg-slate-50">
+              <i data-lucide="search" class="h-4 w-4 text-slate-700"></i>
+            </button>
+            <button class="relative inline-flex items-center justify-center rounded-lg border border-slate-200 p-2 md:px-3 md:py-2 hover:bg-slate-50">
               <i data-lucide="heart" class="h-4 w-4 text-slate-700"></i>
             </button>
-            <button id="open-cart" class="relative inline-flex items-center justify-center rounded-lg bg-slate-900 text-white px-3 py-2 hover:bg-slate-800">
+            <button id="open-cart" class="relative inline-flex items-center justify-center rounded-lg bg-slate-900 text-white p-2 md:px-3 md:py-2 hover:bg-slate-800">
               <i data-lucide="shopping-cart" class="h-4 w-4"></i>
               <span class="ml-2 hidden sm:inline text-sm">Bag</span>
-              <span id="bag-count" class="ml-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-white/10 px-1 text-xs">0</span>
+              <span id="bag-count" class="ml-1 md:ml-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-white/10 px-1 text-xs">0</span>
             </button>
           </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 py-4">
+          <nav class="flex flex-col space-y-4">
+            <a href="#" class="text-slate-600 hover:text-slate-900 py-2">Home</a>
+            <a href="#" class="text-slate-600 hover:text-slate-900 py-2">Our Store</a>
+            <a href="#" class="text-slate-600 hover:text-slate-900 py-2">Speakers</a>
+            <a href="#" class="text-slate-600 hover:text-slate-900 py-2">Phones</a>
+            <a href="#" class="text-slate-600 hover:text-slate-900 py-2">Laptops</a>
+            <a href="#" class="text-slate-600 hover:text-slate-900 py-2">Accessories</a>
+          </nav>
         </div>
       </div>
     </header>
 
     <main>
       <!-- Hero Carousel -->
-      <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-8">
-        <div class="relative overflow-hidden rounded-2xl bg-slate-50">
-          <div id="hero-track" class="relative h-[420px] md:h-[520px] w-full">
+      <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-4 md:mt-8">
+        <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-slate-50">
+          <div id="hero-track" class="relative h-[300px] sm:h-[400px] md:h-[520px] w-full">
             <!-- Slide 1 -->
-            <article class="hero-slide absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-6 p-8 md:p-12">
-              <div class="flex flex-col justify-center">
-                <h1 class="text-4xl md:text-6xl font-semibold tracking-tight">Galaxy S13+ Ultra.</h1>
-                <p class="mt-3 text-slate-600 text-base md:text-lg">Supercharged for pros. Starting at $999.00</p>
-                <p class="mt-1 text-slate-500 text-sm">From $999.00 or $41.62/mo for 24 mo.</p>
-                <div class="mt-6 flex items-center gap-3">
-                  <a href="#" class="inline-flex items-center justify-center rounded-lg bg-slate-900 text-white px-5 py-2.5 text-sm hover:bg-slate-800">Buy Now</a>
-                  <a href="#" class="inline-flex items-center justify-center rounded-lg border border-slate-200 px-5 py-2.5 text-sm hover:bg-slate-50">Learn More</a>
+            <article class="hero-slide absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 sm:p-6 md:p-12">
+              <div class="flex flex-col justify-center order-2 md:order-1">
+                <h1 class="text-2xl sm:text-3xl md:text-6xl font-semibold tracking-tight">Galaxy S13+ Ultra.</h1>
+                <p class="mt-2 md:mt-3 text-slate-600 text-sm sm:text-base md:text-lg">Supercharged for pros. Starting at $999.00</p>
+                <p class="mt-1 text-slate-500 text-xs sm:text-sm">From $999.00 or $41.62/mo for 24 mo.</p>
+                <div class="mt-4 md:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
+                  <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-slate-900 text-white px-4 sm:px-5 py-2 sm:py-2.5 text-sm hover:bg-slate-800">Buy Now</a>
+                  <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center rounded-lg border border-slate-200 px-4 sm:px-5 py-2 sm:py-2.5 text-sm hover:bg-slate-50">Learn More</a>
                 </div>
               </div>
-              <div class="flex items-end justify-end">
-                <img alt="Phone" class="h-full w-full object-cover rounded-xl" src="images/phone.png">
+              <div class="flex items-center justify-center order-1 md:order-2">
+                <img alt="Phone" class="h-32 sm:h-40 md:h-full w-full object-cover rounded-lg md:rounded-xl" src="images/phone.png">
               </div>
             </article>
             <!-- Slide 2 -->
-            <article class="hero-slide absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-6 p-8 md:p-12 opacity-0 pointer-events-none">
-              <div class="flex flex-col justify-center">
-                <h2 class="text-4xl md:text-6xl font-semibold tracking-tight">MacBook Air M2.</h2>
-                <p class="mt-3 text-slate-600 text-base md:text-lg">Featherweight power. From $1199.00</p>
-                <div class="mt-6 flex items-center gap-3">
-                  <a href="#" class="inline-flex items-center justify-center rounded-lg bg-slate-900 text-white px-5 py-2.5 text-sm hover:bg-slate-800">Shop Now</a>
-                  <a href="#" class="inline-flex items-center justify-center rounded-lg border border-slate-200 px-5 py-2.5 text-sm hover:bg-slate-50">See Specs</a>
+            <article class="hero-slide absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 sm:p-6 md:p-12 opacity-0 pointer-events-none">
+              <div class="flex flex-col justify-center order-2 md:order-1">
+                <h2 class="text-2xl sm:text-3xl md:text-6xl font-semibold tracking-tight">MacBook Air M2.</h2>
+                <p class="mt-2 md:mt-3 text-slate-600 text-sm sm:text-base md:text-lg">Featherweight power. From $1199.00</p>
+                <div class="mt-4 md:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
+                  <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-slate-900 text-white px-4 sm:px-5 py-2 sm:py-2.5 text-sm hover:bg-slate-800">Shop Now</a>
+                  <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center rounded-lg border border-slate-200 px-4 sm:px-5 py-2 sm:py-2.5 text-sm hover:bg-slate-50">See Specs</a>
                 </div>
               </div>
-              <div class="flex items-end justify-end">
-                <img alt="Laptop" class="h-full w-full object-cover rounded-xl" src="images/laptop.png">
+              <div class="flex items-center justify-center order-1 md:order-2">
+                <img alt="Laptop" class="h-32 sm:h-40 md:h-full w-full object-cover rounded-lg md:rounded-xl" src="images/laptop.png">
               </div>
             </article>
             <!-- Slide 3 -->
-            <article class="hero-slide absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-6 p-8 md:p-12 opacity-0 pointer-events-none">
-              <div class="flex flex-col justify-center">
-                <h2 class="text-4xl md:text-6xl font-semibold tracking-tight">AirPods Pro (2nd Gen).</h2>
-                <p class="mt-3 text-slate-600 text-base md:text-lg">Personalized Spatial Audio. $249.00</p>
-                <div class="mt-6 flex items-center gap-3">
-                  <a href="#" class="inline-flex items-center justify-center rounded-lg bg-slate-900 text-white px-5 py-2.5 text-sm hover:bg-slate-800">Buy Now</a>
-                  <a href="#" class="inline-flex items-center justify-center rounded-lg border border-slate-200 px-5 py-2.5 text-sm hover:bg-slate-50">Learn More</a>
+            <article class="hero-slide absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 sm:p-6 md:p-12 opacity-0 pointer-events-none">
+              <div class="flex flex-col justify-center order-2 md:order-1">
+                <h2 class="text-2xl sm:text-3xl md:text-6xl font-semibold tracking-tight">AirPods Pro (2nd Gen).</h2>
+                <p class="mt-2 md:mt-3 text-slate-600 text-sm sm:text-base md:text-lg">Personalized Spatial Audio. $249.00</p>
+                <div class="mt-4 md:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
+                  <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-slate-900 text-white px-4 sm:px-5 py-2 sm:py-2.5 text-sm hover:bg-slate-800">Buy Now</a>
+                  <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center rounded-lg border border-slate-200 px-4 sm:px-5 py-2 sm:py-2.5 text-sm hover:bg-slate-50">Learn More</a>
                 </div>
               </div>
-              <div class="flex items-end justify-end">
-                <img alt="Earbuds" class="h-full w-full object-cover rounded-xl" src="images/earbuds.png">
+              <div class="flex items-center justify-center order-1 md:order-2">
+                <img alt="Earbuds" class="h-32 sm:h-40 md:h-full w-full object-cover rounded-lg md:rounded-xl" src="images/earbuds.png">
               </div>
             </article>
           </div>
@@ -147,123 +168,123 @@
       </section>
 
       <!-- Categories -->
-      <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12">
-        <h3 class="text-2xl md:text-3xl font-semibold tracking-tight">Our Top Categories</h3>
-        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+      <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-8 md:mt-12">
+        <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight">Our Top Categories</h3>
+        <div class="mt-4 md:mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
           <!-- Category Card -->
-          <a href="#" class="group flex flex-col items-center rounded-xl border border-slate-200 bg-white p-4 hover:shadow-sm">
-            <div class="h-16 w-16 rounded-lg overflow-hidden mb-3 bg-slate-50">
+          <a href="#" class="group flex flex-col items-center rounded-lg md:rounded-xl border border-slate-200 bg-white p-3 md:p-4 hover:shadow-sm">
+            <div class="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-lg overflow-hidden mb-2 md:mb-3 bg-slate-50">
                 <img class="h-full w-full object-cover" src="images/smart-tv.png" alt="Smart TV">
             </div>
             <div class="text-center">
-              <p class="text-sm font-medium text-slate-900 group-hover:text-slate-700">Smart TV</p>
-              <p class="text-xs text-slate-500">9 items</p>
+              <p class="text-xs sm:text-sm font-medium text-slate-900 group-hover:text-slate-700">Smart TV</p>
+              <p class="text-[10px] sm:text-xs text-slate-500">9 items</p>
             </div>
           </a>
-          <a href="#" class="group flex flex-col items-center rounded-xl border border-slate-200 bg-white p-4 hover:shadow-sm">
-            <div class="h-16 w-16 rounded-lg overflow-hidden mb-3 bg-slate-50">
+          <a href="#" class="group flex flex-col items-center rounded-lg md:rounded-xl border border-slate-200 bg-white p-3 md:p-4 hover:shadow-sm">
+            <div class="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-lg overflow-hidden mb-2 md:mb-3 bg-slate-50">
                 <img class="h-full w-full object-cover" src="images/speakers.png" alt="Speakers">
             </div>
             <div class="text-center">
-              <p class="text-sm font-medium text-slate-900 group-hover:text-slate-700">Speakers</p>
-              <p class="text-xs text-slate-500">3 items</p>
+              <p class="text-xs sm:text-sm font-medium text-slate-900 group-hover:text-slate-700">Speakers</p>
+              <p class="text-[10px] sm:text-xs text-slate-500">3 items</p>
             </div>
           </a>
-          <a href="#" class="group flex flex-col items-center rounded-xl border border-slate-200 bg-white p-4 hover:shadow-sm">
-            <div class="h-16 w-16 rounded-lg overflow-hidden mb-3 bg-slate-50">
+          <a href="#" class="group flex flex-col items-center rounded-lg md:rounded-xl border border-slate-200 bg-white p-3 md:p-4 hover:shadow-sm">
+            <div class="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-lg overflow-hidden mb-2 md:mb-3 bg-slate-50">
                 <img class="h-full w-full object-cover" src="images/tablets.png" alt="Tablets">
             </div>
             <div class="text-center">
-              <p class="text-sm font-medium text-slate-900 group-hover:text-slate-700">Tablets</p>
-              <p class="text-xs text-slate-500">4 items</p>
+              <p class="text-xs sm:text-sm font-medium text-slate-900 group-hover:text-slate-700">Tablets</p>
+              <p class="text-[10px] sm:text-xs text-slate-500">4 items</p>
             </div>
           </a>
-          <a href="#" class="group flex flex-col items-center rounded-xl border border-slate-200 bg-white p-4 hover:shadow-sm">
-            <div class="h-16 w-16 rounded-lg overflow-hidden mb-3 bg-slate-50">
+          <a href="#" class="group flex flex-col items-center rounded-lg md:rounded-xl border border-slate-200 bg-white p-3 md:p-4 hover:shadow-sm">
+            <div class="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-lg overflow-hidden mb-2 md:mb-3 bg-slate-50">
                 <img class="h-full w-full object-cover" src="images/airpods.png" alt="AirPods">
             </div>
             <div class="text-center">
-              <p class="text-sm font-medium text-slate-900 group-hover:text-slate-700">AirPods</p>
-              <p class="text-xs text-slate-500">2 items</p>
+              <p class="text-xs sm:text-sm font-medium text-slate-900 group-hover:text-slate-700">AirPods</p>
+              <p class="text-[10px] sm:text-xs text-slate-500">2 items</p>
             </div>
           </a>
-          <a href="#" class="group flex flex-col items-center rounded-xl border border-slate-200 bg-white p-4 hover:shadow-sm">
-            <div class="h-16 w-16 rounded-lg overflow-hidden mb-3 bg-slate-50">
+          <a href="#" class="group flex flex-col items-center rounded-lg md:rounded-xl border border-slate-200 bg-white p-3 md:p-4 hover:shadow-sm">
+            <div class="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-lg overflow-hidden mb-2 md:mb-3 bg-slate-50">
                 <img class="h-full w-full object-cover" src="images/smartwatch.png" alt="Smartwatches">
             </div>
             <div class="text-center">
-              <p class="text-sm font-medium text-slate-900 group-hover:text-slate-700">Smartwatches</p>
-              <p class="text-xs text-slate-500">10 items</p>
+              <p class="text-xs sm:text-sm font-medium text-slate-900 group-hover:text-slate-700">Smartwatches</p>
+              <p class="text-[10px] sm:text-xs text-slate-500">10 items</p>
             </div>
           </a>
         </div>
       </section>
 
       <!-- Promo Banners -->
-      <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-8 md:mt-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           <!-- Banner 1 -->
-          <div class="rounded-2xl p-6 bg-gradient-to-br from-slate-100 to-slate-50 border border-slate-200">
-            <div class="flex items-center justify-between gap-4">
-              <div>
+          <div class="rounded-xl md:rounded-2xl p-4 md:p-6 bg-gradient-to-br from-slate-100 to-slate-50 border border-slate-200">
+            <div class="flex items-center justify-between gap-3 md:gap-4">
+              <div class="flex-1">
                 <p class="text-xs text-blue-600 font-medium">Big Saving</p>
-                <h4 class="text-xl font-semibold tracking-tight mt-1">Galaxy S13 Lite</h4>
+                <h4 class="text-lg md:text-xl font-semibold tracking-tight mt-1">Galaxy S13 Lite</h4>
                 <p class="text-sm text-slate-600 mt-1">From $429.00</p>
-                <a href="#" class="mt-4 inline-flex items-center rounded-lg bg-slate-900 text-white px-4 py-2 text-sm hover:bg-slate-800">Buy Now</a>
+                <a href="#" class="mt-3 md:mt-4 inline-flex items-center rounded-lg bg-slate-900 text-white px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm hover:bg-slate-800">Buy Now</a>
               </div>
-              <img class="h-28 object-contain" src="images/galaxy-s13-lite.png" alt="Phone">
+              <img class="h-20 md:h-28 object-contain flex-shrink-0" src="images/galaxy-s13-lite.png" alt="Phone">
             </div>
           </div>
 
           <!-- Banner 2 -->
-          <div class="rounded-2xl p-6 bg-gradient-to-br from-pink-50 to-rose-100 border border-rose-100">
-            <div class="flex items-center justify-between gap-4">
-              <div>
+          <div class="rounded-xl md:rounded-2xl p-4 md:p-6 bg-gradient-to-br from-pink-50 to-rose-100 border border-rose-100">
+            <div class="flex items-center justify-between gap-3 md:gap-4">
+              <div class="flex-1">
                 <p class="text-xs text-rose-600 font-medium">15% Off</p>
-                <h4 class="text-xl font-semibold tracking-tight mt-1">Smartwatch 7</h4>
+                <h4 class="text-lg md:text-xl font-semibold tracking-tight mt-1">Smartwatch 7</h4>
                 <p class="text-sm text-slate-600 mt-1">From $379.00</p>
-                <a href="#" class="mt-4 inline-flex items-center rounded-lg border border-rose-200 bg-white px-4 py-2 text-sm hover:bg-rose-50">Learn More</a>
+                <a href="#" class="mt-3 md:mt-4 inline-flex items-center rounded-lg border border-rose-200 bg-white px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm hover:bg-rose-50">Learn More</a>
               </div>
-              <img class="h-28 object-contain" src="images/smartwatch-7.png" alt="Watch">
+              <img class="h-20 md:h-28 object-contain flex-shrink-0" src="images/smartwatch-7.png" alt="Watch">
             </div>
           </div>
 
           <!-- Banner 3 -->
-          <div class="rounded-2xl p-6 bg-gradient-to-br from-blue-50 to-indigo-100 border border-indigo-100">
-            <div class="flex items-center justify-between gap-4">
-              <div>
+          <div class="rounded-xl md:rounded-2xl p-4 md:p-6 bg-gradient-to-br from-blue-50 to-indigo-100 border border-indigo-100">
+            <div class="flex items-center justify-between gap-3 md:gap-4">
+              <div class="flex-1">
                 <p class="text-xs text-indigo-600 font-medium">Smart Home</p>
-                <h4 class="text-xl font-semibold tracking-tight mt-1">Bold Colors. $99 Each.</h4>
+                <h4 class="text-lg md:text-xl font-semibold tracking-tight mt-1">Bold Colors. $99 Each.</h4>
                 <p class="text-sm text-slate-600 mt-1">From $229.00</p>
-                <a href="#" class="mt-4 inline-flex items-center rounded-lg bg-indigo-600 text-white px-4 py-2 text-sm hover:bg-indigo-500">Buy Now</a>
+                <a href="#" class="mt-3 md:mt-4 inline-flex items-center rounded-lg bg-indigo-600 text-white px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm hover:bg-indigo-500">Buy Now</a>
               </div>
-              <img class="h-28 object-contain" src="images/home-speaker.png" alt="Home Speaker">
+              <img class="h-20 md:h-28 object-contain flex-shrink-0" src="images/home-speaker.png" alt="Home Speaker">
             </div>
           </div>
 
           <!-- Banner 4 -->
-          <div class="rounded-2xl p-6 bg-gradient-to-br from-slate-100 to-slate-50 border border-slate-200 md:col-span-2">
-            <div class="flex items-center justify-between gap-4">
-              <div>
+          <div class="rounded-xl md:rounded-2xl p-4 md:p-6 bg-gradient-to-br from-slate-100 to-slate-50 border border-slate-200 sm:col-span-2 md:col-span-2">
+            <div class="flex items-center justify-between gap-3 md:gap-4">
+              <div class="flex-1">
                 <p class="text-xs text-emerald-600 font-medium">Best Price</p>
-                <h4 class="text-xl font-semibold tracking-tight mt-1">5th Gen AirPods</h4>
+                <h4 class="text-lg md:text-xl font-semibold tracking-tight mt-1">5th Gen AirPods</h4>
                 <p class="text-sm text-slate-600 mt-1">From $499.00</p>
-                <a href="#" class="mt-4 inline-flex items-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm hover:bg-slate-50">Learn More</a>
+                <a href="#" class="mt-3 md:mt-4 inline-flex items-center rounded-lg border border-slate-200 bg-white px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm hover:bg-slate-50">Learn More</a>
               </div>
-              <img class="h-28 object-contain" src="images/airpods-5th-gen.png" alt="AirPods">
+              <img class="h-20 md:h-28 object-contain flex-shrink-0" src="images/airpods-5th-gen.png" alt="AirPods">
             </div>
           </div>
 
           <!-- Banner 5 -->
-          <div class="rounded-2xl p-6 bg-gradient-to-br from-sky-50 to-blue-100 border border-blue-100">
-            <div class="flex items-center justify-between gap-4">
-              <div>
+          <div class="rounded-xl md:rounded-2xl p-4 md:p-6 bg-gradient-to-br from-sky-50 to-blue-100 border border-blue-100">
+            <div class="flex items-center justify-between gap-3 md:gap-4">
+              <div class="flex-1">
                 <p class="text-xs text-sky-600 font-medium">Flat 25% Off</p>
-                <h4 class="text-xl font-semibold tracking-tight mt-1">Headset Max 3rd Gen</h4>
+                <h4 class="text-lg md:text-xl font-semibold tracking-tight mt-1">Headset Max 3rd Gen</h4>
                 <p class="text-sm text-slate-600 mt-1">From $549.00</p>
-                <a href="#" class="mt-4 inline-flex items-center rounded-lg bg-slate-900 text-white px-4 py-2 text-sm hover:bg-slate-800">Buy Now</a>
+                <a href="#" class="mt-3 md:mt-4 inline-flex items-center rounded-lg bg-slate-900 text-white px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm hover:bg-slate-800">Buy Now</a>
               </div>
-              <img class="h-28 object-contain" src="images/headset-max.png" alt="Headphones">
+              <img class="h-20 md:h-28 object-contain flex-shrink-0" src="images/headset-max.png" alt="Headphones">
             </div>
           </div>
 
@@ -271,9 +292,9 @@
       </section>
 
       <!-- Products Tabs -->
-      <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-14">
-        <div class="flex items-center justify-between">
-          <h3 class="text-2xl md:text-3xl font-semibold tracking-tight">Our Trending Products</h3>
+      <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 md:mt-14">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight">Our Trending Products</h3>
           <div class="hidden sm:flex gap-2">
             <button id="prev-products" class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 hover:bg-slate-50"><i data-lucide="chevron-left" class="h-4 w-4"></i></button>
             <button id="next-products" class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 hover:bg-slate-50"><i data-lucide="chevron-right" class="h-4 w-4"></i></button>
@@ -281,41 +302,41 @@
         </div>
 
         <!-- Tabs -->
-        <div class="mt-6 border-b border-slate-200">
-          <nav class="flex gap-6 text-sm">
-            <button data-tab="new" class="tab-btn -mb-px border-b-2 border-slate-900 px-1.5 py-3 font-medium">New Products</button>
-            <button data-tab="best" class="tab-btn -mb-px border-b-2 border-transparent px-1.5 py-3 text-slate-600 hover:text-slate-900">Best Selling</button>
-            <button data-tab="featured" class="tab-btn -mb-px border-b-2 border-transparent px-1.5 py-3 text-slate-600 hover:text-slate-900">Featured Products</button>
+        <div class="mt-4 md:mt-6 border-b border-slate-200">
+          <nav class="flex gap-3 md:gap-6 text-sm overflow-x-auto">
+            <button data-tab="new" class="tab-btn -mb-px border-b-2 border-slate-900 px-1.5 py-3 font-medium whitespace-nowrap">New Products</button>
+            <button data-tab="best" class="tab-btn -mb-px border-b-2 border-transparent px-1.5 py-3 text-slate-600 hover:text-slate-900 whitespace-nowrap">Best Selling</button>
+            <button data-tab="featured" class="tab-btn -mb-px border-b-2 border-transparent px-1.5 py-3 text-slate-600 hover:text-slate-900 whitespace-nowrap">Featured Products</button>
           </nav>
         </div>
 
         <!-- Products Grid -->
-        <div class="mt-6">
+        <div class="mt-4 md:mt-6">
           <!-- New -->
-          <div data-panel="new" class="product-panel grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div data-panel="new" class="product-panel grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
             <!-- Card -->
-            <div class="group rounded-xl border border-slate-200 p-3 hover:shadow-sm bg-white">
+            <div class="group rounded-lg md:rounded-xl border border-slate-200 p-2 md:p-3 hover:shadow-sm bg-white">
               <div class="relative">
-                <span class="absolute left-2 top-2 rounded-md bg-red-500/90 px-2 py-0.5 text-[10px] text-white">-20%</span>
-                <img class="h-40 w-full object-cover rounded-lg" src="images/ultra-air-laptop.jpg" alt="Laptop">
-                <button class="absolute right-2 top-2 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/90 shadow-sm hover:bg-white">
-                  <i data-lucide="heart" class="h-4 w-4 text-slate-700"></i>
+                <span class="absolute left-1 md:left-2 top-1 md:top-2 rounded-md bg-red-500/90 px-1.5 md:px-2 py-0.5 text-[9px] md:text-[10px] text-white">-20%</span>
+                <img class="h-32 md:h-40 w-full object-cover rounded-md md:rounded-lg" src="images/ultra-air-laptop.jpg" alt="Laptop">
+                <button class="absolute right-1 md:right-2 top-1 md:top-2 inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-lg bg-white/90 shadow-sm hover:bg-white">
+                  <i data-lucide="heart" class="h-3 w-3 md:h-4 md:w-4 text-slate-700"></i>
                 </button>
               </div>
-              <div class="mt-3">
-                <p class="text-sm text-slate-500">Laptops</p>
-                <h5 class="mt-1 text-sm font-medium">Ultra Air 13” M2</h5>
-                <div class="mt-2 flex items-center gap-1 text-amber-500">
-                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-                  <i data-lucide="star-half" class="h-4 w-4"></i>
+              <div class="mt-2 md:mt-3">
+                <p class="text-xs md:text-sm text-slate-500">Laptops</p>
+                <h5 class="mt-1 text-xs md:text-sm font-medium">Ultra Air 13" M2</h5>
+                <div class="mt-1 md:mt-2 flex items-center gap-0.5 md:gap-1 text-amber-500">
+                  <i data-lucide="star" class="h-3 w-3 md:h-4 md:w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-3 w-3 md:h-4 md:w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-3 w-3 md:h-4 md:w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-3 w-3 md:h-4 md:w-4 fill-current"></i>
+                  <i data-lucide="star-half" class="h-3 w-3 md:h-4 md:w-4"></i>
                 </div>
-                <div class="mt-2 flex items-center justify-between">
-                  <p class="text-slate-900 font-medium">$1,099 <span class="ml-1 text-xs text-slate-500 line-through">$1,299</span></p>
-                  <button class="add-to-cart inline-flex items-center gap-1 rounded-lg bg-slate-900 px-2.5 py-1.5 text-xs text-white hover:bg-slate-800" data-name="Ultra Air 13”" data-price="1099">
-                    <i data-lucide="shopping-cart" class="h-3.5 w-3.5"></i> Add
+                <div class="mt-1 md:mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-0">
+                  <p class="text-slate-900 font-medium text-xs md:text-sm">$1,099 <span class="ml-1 text-[10px] md:text-xs text-slate-500 line-through">$1,299</span></p>
+                  <button class="add-to-cart inline-flex items-center justify-center gap-1 rounded-lg bg-slate-900 px-2 md:px-2.5 py-1 md:py-1.5 text-[10px] md:text-xs text-white hover:bg-slate-800" data-name="Ultra Air 13"" data-price="1099">
+                    <i data-lucide="shopping-cart" class="h-3 w-3 md:h-3.5 md:w-3.5"></i> Add
                   </button>
                 </div>
               </div>
@@ -578,16 +599,16 @@
       </section>
 
       <!-- Newsletter -->
-      <section class="mt-16 bg-slate-50 border-t border-slate-100">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-          <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-6">
-            <div>
-              <h4 class="text-2xl md:text-3xl font-semibold tracking-tight">Join our newsletter</h4>
+      <section class="mt-12 md:mt-16 bg-slate-50 border-t border-slate-100">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 md:gap-6">
+            <div class="text-center md:text-left">
+              <h4 class="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight">Join our newsletter</h4>
               <p class="mt-2 text-sm text-slate-600">Get product news, special offers, and curated recommendations.</p>
             </div>
-            <form class="flex gap-3">
-              <input type="email" placeholder="Enter your email" class="w-80 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-300">
-              <button class="rounded-lg bg-slate-900 px-5 py-2 text-sm text-white hover:bg-slate-800">Subscribe</button>
+            <form class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+              <input type="email" placeholder="Enter your email" class="flex-1 sm:w-64 md:w-80 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-300">
+              <button class="w-full sm:w-auto rounded-lg bg-slate-900 px-4 md:px-5 py-2 text-sm text-white hover:bg-slate-800">Subscribe</button>
             </form>
           </div>
         </div>
@@ -715,6 +736,23 @@
       document.getElementById('next-products').addEventListener('click', () => {
         productContainers.forEach(c => c.scrollBy({left: 300, behavior: 'smooth'}));
       });
+
+      // Mobile menu toggle
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          const icon = mobileMenuToggle.querySelector('i');
+          if (mobileMenu.classList.contains('hidden')) {
+            icon.setAttribute('data-lucide', 'menu');
+          } else {
+            icon.setAttribute('data-lucide', 'x');
+          }
+          lucide.createIcons();
+        });
+      }
     </script>
   
 </body></html>
